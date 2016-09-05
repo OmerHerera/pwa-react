@@ -1,5 +1,5 @@
 #Progressive Web App - (using React)
-> Writing Progressive Web Application with React 
+> :fire: Writing Progressive Web Application with React 
 
 This is POC for a simple PWA and react.
 
