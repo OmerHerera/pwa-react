@@ -13,7 +13,7 @@ class App extends Component {
                     {id: 3, title: 'title3', status: 'status3', time: 'time3'},
                     {id: 4, title: 'title4', status: 'status4', time: 'time4'},
                 ],
-                status: ' - You are: ' + '\ud83d\udc4d'
+                status: 'Status: ' + '\ud83d\udc4d'
             }
         });
     }
@@ -32,7 +32,7 @@ class App extends Component {
     render() {
         return (
             <div className='App'>
-                <Header text='Welcome to React PWA' status={this.state.data.status} />
+                <Header text='' status={this.state.data.status} />
                 <Ul data={this.state.data} />
             </div>
         );
@@ -47,7 +47,7 @@ class App extends Component {
                     {id: 3, title: 'title3', status: 'status3', time: 'time3'},
                     {id: 4, title: 'title4', status: 'status4', time: 'time4'},
                 ],
-                status: ' - You are: ' + status
+                status: 'Status: ' + status
             }
         });
     }
