@@ -8,10 +8,10 @@ self.addEventListener('install', function(e) {
         caches.open(cacheName).then(function(cache) {
             return cache.addAll([
                 './',
-                './build/static/css/main.css',
-                './build/static/js/main.js',
-                './build/static/media/roboto.woff',
-                './build/static/media/logo.svg',
+                './build/static/css/main.c8a935cd.css',
+                './build/static/js/main.985f183d.js',
+                './build/static/media/roboto.e5d1ccfb.woff',
+                './build/static/media/logo.5d5d9eef.svg',
                 './offline.html'
             ]).then(function() {
                 self.skipWaiting();
