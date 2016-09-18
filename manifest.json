@@ -1,6 +1,6 @@
 {
-  "short_name": "pwa-react",
-  "name": "Progressive Web Application with React",
+  "short_name": "PWA Marvel",
+  "name": "Progressive Web Application with React and MARVEL API",
   "icons": [
     {
       "src": "./48_48_logo.png",

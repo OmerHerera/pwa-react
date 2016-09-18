@@ -1,19 +1,18 @@
 // Use a cacheName for cache versioning
-var cacheName = 'v1:static';
+var cacheName = 'v1:static2';
 
 // During the installation phase, you'll usually want to cache static assets.
 self.addEventListener('install', function(e) {
-    console.log('install is running ...')
+    console.log('install is running ...');
     // Once the service worker is installed, go ahead and fetch the resources to make this work offline.
     e.waitUntil(
         caches.open(cacheName).then(function(cache) {
             return cache.addAll([
                 './',
-                './build/static/css/*.css',
-                './build/static/js/*.js',
-                './build/static/media/*.woff',
-                './build/static/media/*.svg',
-                './offline.html'
+                './static/css/main.ad60a821.css',
+                './static/js/main.c29e32c9.js',
+                './static/media/roboto.e5d1ccfb.woff',
+                './static/media/logo.5d5d9eef.svg'
             ]).then(function() {
                 self.skipWaiting();
             });

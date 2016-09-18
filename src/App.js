@@ -10,7 +10,7 @@ class App extends Component {
         return chars.substr( Math.floor(Math.random() * 62), 1);
     }
     loadDataFromServer () {
-        let url = `http://gateway.marvel.com:80/v1/public/characters?ts=1&apikey=047d34076dca78bfb1fd6ba191996354&hash=aab07edc087e0ae82a8ddbea3b300086&nameStartsWith=${this.random_character()}`;
+        let url = `https://gateway.marvel.com:80/v1/public/characters?ts=1&apikey=047d34076dca78bfb1fd6ba191996354&hash=aab07edc087e0ae82a8ddbea3b300086&nameStartsWith=${this.random_character()}`;
         axios.get(url)
             .then(res => {
                 this.setState({
