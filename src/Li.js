@@ -7,7 +7,7 @@ class Ul extends Component {
         return (
             <li className="item">
                 <span className="title">{this.props.name}</span>
-                <span className="thumbnail"><img className="thumbnail" src={thumbnail} /></span>
+                <span className="thumbnail"><img className="thumbnail" src={thumbnail.replace("http://", "https://")} /></span>
                 <span className="status">{this.props.description}</span>
             </li>
         );
