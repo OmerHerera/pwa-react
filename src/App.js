@@ -6,14 +6,18 @@ import Header from './Header';
 class App extends Component {
     loadDataFromServer () {
         this.setState({
+            // data: {
+            //     elements: [
+            //         {id: 1, title: 'title1', status: 'status1', time: 'time1'},
+            //         {id: 2, title: 'title2', status: 'status2', time: 'time2'},
+            //         {id: 3, title: 'title3', status: 'status3', time: 'time3'},
+            //         {id: 4, title: 'title4', status: 'status4', time: 'time4'},
+            //     ],
+            //     status: 'Status: ' + '\ud83d\udc4d'
+            // }
             data: {
-                elements: [
-                    {id: 1, title: 'title1', status: 'status1', time: 'time1'},
-                    {id: 2, title: 'title2', status: 'status2', time: 'time2'},
-                    {id: 3, title: 'title3', status: 'status3', time: 'time3'},
-                    {id: 4, title: 'title4', status: 'status4', time: 'time4'},
-                ],
-                status: 'Status: ' + '\ud83d\udc4d'
+                elements: this.props.heroes,
+                status: 'Status: ' + '\ud83c\udf7a'
             }
         });
     }
@@ -21,7 +25,7 @@ class App extends Component {
         this.loadDataFromServer();
         let that = this;
         window.addEventListener('StatusOnline', function (e) {
-            that.statusChanged('Online ' + '\ud83d\udc4d');
+            that.statusChanged('Online ' + '\ud83c\udf7b');
         }, false);
 
         window.addEventListener('StatusOffline', function (e) {
@@ -41,12 +45,13 @@ class App extends Component {
     statusChanged (status) {
         this.setState({
             data: {
-                elements: [
-                    {id: 1, title: 'title1', status: 'status1', time: 'time1'},
-                    {id: 2, title: 'title2', status: 'status2', time: 'time2'},
-                    {id: 3, title: 'title3', status: 'status3', time: 'time3'},
-                    {id: 4, title: 'title4', status: 'status4', time: 'time4'},
-                ],
+                elements: this.props.heroes,
+                // elements: [
+                //     {id: 1, title: 'title1', status: 'status1', time: 'time1'},
+                //     {id: 2, title: 'title2', status: 'status2', time: 'time2'},
+                //     {id: 3, title: 'title3', status: 'status3', time: 'time3'},
+                //     {id: 4, title: 'title4', status: 'status4', time: 'time4'},
+                // ],
                 status: 'Status: ' + status
             }
         });

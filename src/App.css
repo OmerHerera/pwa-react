@@ -430,13 +430,18 @@ header h3 {
   display: block;
 }
 
+.item .thumbnail {
+  height: 100px;
+  width: 100px;
+}
+
 .item .title {
   font-weight: bold;
 }
 
 .item .status {
   float: right;
-  text-transform: uppercase;
+  text-transform: full-size-kana;
 }
 
 #offline {
