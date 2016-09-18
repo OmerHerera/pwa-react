@@ -2,26 +2,47 @@ import React, { Component } from 'react';
 import './App.css';
 import Ul from './Ul';
 import Header from './Header';
+import axios from 'axios';
 
 class App extends Component {
+    random_character() {
+        var chars = "0123456789abcdefghijklmnopqurstuvwxyzABCDEFGHIJKLMNOPQURSTUVWXYZ";
+        return chars.substr( Math.floor(Math.random() * 62), 1);
+    }
     loadDataFromServer () {
-        this.setState({
-            data: {
-                elements: [
-                    {id: 1, title: 'title1', status: 'status1', time: 'time1'},
-                    {id: 2, title: 'title2', status: 'status2', time: 'time2'},
-                    {id: 3, title: 'title3', status: 'status3', time: 'time3'},
-                    {id: 4, title: 'title4', status: 'status4', time: 'time4'},
-                ],
-                status: 'Status: ' + '\ud83d\udc4d'
-            }
-        });
+        let url = `http://gateway.marvel.com:80/v1/public/characters?ts=1&apikey=047d34076dca78bfb1fd6ba191996354&hash=aab07edc087e0ae82a8ddbea3b300086&nameStartsWith=${this.random_character()}`;
+        axios.get(url)
+            .then(res => {
+                this.setState({
+                    data: {
+                        elements: res.data.data.results,
+                        status: 'Status: ' + '\ud83c\udf7a'
+                    }
+                });
+
+            });
+
+    }
+    getInitialState () {
+        return {
+            elements: [],
+            status: 'Status: ' + '\ud83c\udf7a'
+        };
     }
     componentWillMount() {
+        this.setState({
+            data: {
+                elements: [],
+                status: 'Status: ' + '\ud83c\udf7a'
+            }
+        });
+
         this.loadDataFromServer();
         let that = this;
         window.addEventListener('StatusOnline', function (e) {
-            that.statusChanged('Online ' + '\ud83d\udc4d');
+            that.loadDataFromServer();
+            that.statusChanged('Online ' + '\ud83c\udf7b');
+
         }, false);
 
         window.addEventListener('StatusOffline', function (e) {
@@ -41,12 +62,7 @@ class App extends Component {
     statusChanged (status) {
         this.setState({
             data: {
-                elements: [
-                    {id: 1, title: 'title1', status: 'status1', time: 'time1'},
-                    {id: 2, title: 'title2', status: 'status2', time: 'time2'},
-                    {id: 3, title: 'title3', status: 'status3', time: 'time3'},
-                    {id: 4, title: 'title4', status: 'status4', time: 'time4'},
-                ],
+                elements: this.state.data.elements,
                 status: 'Status: ' + status
             }
         });

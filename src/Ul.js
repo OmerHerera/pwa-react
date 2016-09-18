@@ -4,7 +4,8 @@ import Li from './Li'
 class Ul extends Component {
     render() {
         let liElements = this.props.data.elements.map(function (el) {
-            return (<Li key={el.id} title={el.title} status={el.status} time={el.time} />);
+            return (<Li {...el} />);
+            // return (<Li key={el.id} name={el.name} description={el.style.description} icon={(el.thumbnail && el.thumbnail.icon) ? el.labels.icon : ''} />);
         });
         return (<ul className="arrivals-list">{liElements}</ul>);
 
