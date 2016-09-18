@@ -23,12 +23,6 @@ class App extends Component {
             });
 
     }
-    getInitialState () {
-        return {
-            elements: [],
-            status: 'Status: ' + '\ud83c\udf7a'
-        };
-    }
     componentWillMount() {
         this.setState({
             data: {
